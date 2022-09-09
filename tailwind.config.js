@@ -9,6 +9,7 @@ module.exports = {
       lightGrey: '#efefef',
       darkGrey: '#969696',
       coreBlack: '#000',
+      coreWhite: '#FFF',
       noColor: 'transparent',
     },
     fontSize: {
@@ -25,7 +26,8 @@ module.exports = {
       '6xl': '4rem',
       '7xl': '5rem',
     },
-    extend: {},
+    extend: {
+    },
   },
   plugins: [],
 }

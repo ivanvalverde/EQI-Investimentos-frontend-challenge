@@ -18,10 +18,8 @@ export const UserInput = ({
 }: IUserInputProps): JSX.Element => {
   return (
     <div className="flex flex-col">
-      <label htmlFor={fieldName}>
-        <div className="flex justify-between items-center">
-          <p className="text-xs">{label}</p>
-        </div>
+      <label htmlFor={fieldName} className="text-xs">
+        {label}
       </label>
 
       <NumericFormat
