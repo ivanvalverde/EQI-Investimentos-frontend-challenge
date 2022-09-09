@@ -1,30 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import CheckIcon from "../../atoms/CheckIcon";
 import InfoIcon from "../../atoms/InfoIcon";
+import { BtnActive, ButtonObj } from '../../../shared/types';
+import { ActionsContext } from "../../context/ActionsContext";
 
 interface IButtonGroupProps {
   label: string;
   buttons: ButtonObj[];
 }
 
-type ButtonObj = {
-  name: string;
-  leftBorderRound?: boolean;
-  rightBorderRound?: boolean;
-};
-
-type BtnActive = {
-  [key: string]: boolean;
-};
-
 export const ButtonGroup = ({
   buttons,
   label,
 }: IButtonGroupProps): JSX.Element => {
+  const { setBtnsPressed } = useContext(ActionsContext);
   const isActiveInitialValue = (): BtnActive => {
     const isActiveObj: BtnActive = {};
-    buttons.forEach((btn, index) => {
-      isActiveObj[btn.name + index] = index === 0 ? true : false;
+    buttons.forEach((btn) => {
+      isActiveObj[btn.name] = btn.isActive;
     });
     return isActiveObj;
   };
@@ -38,24 +31,24 @@ export const ButtonGroup = ({
       newIsActiveObj[elem] = false;
     });
     setIsActive({ ...newIsActiveObj, [name]: true });
+    setBtnsPressed((prevState) => ({...prevState, ...newIsActiveObj, [name]: true}))
   };
   return (
     <div className="flex flex-col">
-      <div className="flex justify-between">
+      <div className="flex justify-between my-2">
         <label className="text-xs">{label}</label>
         <InfoIcon />
       </div>
       <div className="flex">
         {buttons.map((btn, index) => {
-          const btnName = btn.name + index;
           return (
             <button
-              key={`${btnName}`}
-              name={`${btnName}`}
+              key={`${btn.name + index}`}
+              name={`${btn.name}`}
               className={`border grow ${btn.leftBorderRound && "rounded-l-xl"} ${
                 btn.rightBorderRound && "rounded-r-xl"
               } p-4 ${
-                isActive[btnName]
+                isActive[btn.name]
                   ? "bg-lightOrange text-coreWhite border-coreBlack"
                   : ""
               }`}
@@ -66,7 +59,7 @@ export const ButtonGroup = ({
             >
               <div className="flex items-center justify-center">
                 <div
-                  className={`${isActive[btnName] ? "visible" : "invisible"}`}
+                  className={`${isActive[btn.name] ? "visible" : "invisible"}`}
                 >
                   <CheckIcon />
                 </div>

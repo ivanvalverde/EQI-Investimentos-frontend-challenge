@@ -1,5 +1,6 @@
 import React from "react";
 import { NumericFormat } from "react-number-format";
+import { UserInputs } from "../../../shared/types";
 
 interface IUserInputProps {
   isCurrency?: boolean;
@@ -7,6 +8,8 @@ interface IUserInputProps {
   defaultValue?: number;
   fieldName: string;
   label: string;
+  text: string;
+  setText: React.Dispatch<React.SetStateAction<UserInputs>>;
 }
 
 export const UserInput = ({
@@ -15,10 +18,12 @@ export const UserInput = ({
   defaultValue,
   fieldName,
   label,
+  text,
+  setText,
 }: IUserInputProps): JSX.Element => {
   return (
-    <div className="flex flex-col">
-      <label htmlFor={fieldName} className="text-xs">
+    <div className="flex flex-col my-5">
+      <label htmlFor={fieldName} className="text-xs my-2">
         {label}
       </label>
 
@@ -31,6 +36,10 @@ export const UserInput = ({
         decimalSeparator=","
         decimalScale={!isCurrency && !isPercentage ? 0 : 2}
         name={fieldName}
+        value={text}
+        onValueChange={(e) => {
+          setText((prev) => ({ ...prev, [fieldName]: e.formattedValue }));
+        }}
         type="text"
         className="bg-noColor outline-none border-b"
       />
