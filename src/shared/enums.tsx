@@ -16,6 +16,10 @@ export enum labels {
   PRE = "PRÉ",
   POST = "POS",
   FIXED = "FIXADO",
+  VALUE = "Valor (R$)",
+  TIME = "Tempo (meses)",
+  SIMULATION_RESULT = "Resultado da Simulação",
+  PROJECTION_OF_VALUES = "Projeção de Valores",
 }
 
 export enum fieldNames {

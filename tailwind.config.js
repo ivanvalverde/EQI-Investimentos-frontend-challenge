@@ -4,15 +4,18 @@ module.exports = {
   theme: {
     colors: {
       lightGreen: '#9dcc95',
+      veryLightOrange: '#ed8e53',
       lightOrange: '#ed8e53',
       warningRed: '#ef1717',
       lightGrey: '#efefef',
+      intermediateGrey: '#f4f4f4',
       darkGrey: '#969696',
       coreBlack: '#000',
       coreWhite: '#FFF',
       noColor: 'transparent',
     },
     fontSize: {
+      'xxs': '.65rem',
       'xs': '.75rem',
       'sm': '.875rem',
       'tiny': '.875rem',

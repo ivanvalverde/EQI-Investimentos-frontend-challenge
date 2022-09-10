@@ -1,7 +1,7 @@
 import React from "react";
 
 interface IBackgroundContainerProps {
-    children: JSX.Element[],
+    children: JSX.Element,
 }
 
 export const BackgroundContainer = ({ children }: IBackgroundContainerProps): JSX.Element => {
