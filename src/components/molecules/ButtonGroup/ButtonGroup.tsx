@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import CheckIcon from "../../atoms/CheckIcon";
 import InfoIcon from "../../atoms/InfoIcon";
-import { BtnActive, ButtonObj } from '../../../shared/types';
+import { BtnActive, ButtonObj } from "../../../shared/types";
 import { ActionsContext } from "../../context/ActionsContext";
+import { labels } from "../../../shared/enums";
 
 interface IButtonGroupProps {
   label: string;
@@ -31,13 +32,19 @@ export const ButtonGroup = ({
       newIsActiveObj[elem] = false;
     });
     setIsActive({ ...newIsActiveObj, [name]: true });
-    setBtnsPressed((prevState) => ({...prevState, ...newIsActiveObj, [name]: true}))
+    setBtnsPressed((prevState) => ({
+      ...prevState,
+      ...newIsActiveObj,
+      [name]: true,
+    }));
   };
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mt-4">
       <div className="flex justify-between my-2">
-        <label className="text-xs">{label}</label>
-        <InfoIcon />
+        <label className="laptop:text-xs mobile:text-base">{label}</label>
+        <div title={labels.TOOLTIP_TEXT + label}>
+          <InfoIcon />
+        </div>
       </div>
       <div className="flex">
         {buttons.map((btn, index) => {
@@ -45,9 +52,9 @@ export const ButtonGroup = ({
             <button
               key={`${btn.name + index}`}
               name={`${btn.name}`}
-              className={`border grow ${btn.leftBorderRound && "rounded-l-xl"} ${
-                btn.rightBorderRound && "rounded-r-xl"
-              } p-4 ${
+              className={`border grow ${
+                btn.leftBorderRound && "rounded-l-xl"
+              } ${btn.rightBorderRound && "rounded-r-xl"} p-4 ${
                 isActive[btn.name]
                   ? "bg-lightOrange text-coreWhite border-coreBlack"
                   : ""

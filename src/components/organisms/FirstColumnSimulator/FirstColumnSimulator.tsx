@@ -113,7 +113,7 @@ export const FirstColumnSimulator = () => {
           />
         </div>
       </div>
-      <div className="flex laptop:justify-end laptop:mx-8 laptop:flex-row mobile:justify-center mobile:mx-0 mobile:flex-col mobile:items-center">
+      <div className="flex laptop:justify-evenly laptop:flex-row mobile:justify-center mobile:flex-col mobile:items-center">
         <ActionButton
           label={labels.CLEAR_FIELDS_LABEL}
           callBack={onClearFields}

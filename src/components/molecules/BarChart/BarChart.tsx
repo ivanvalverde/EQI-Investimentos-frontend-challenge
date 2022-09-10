@@ -23,7 +23,7 @@ export const BarChart = ({ apiData }: IBarChartProps): JSX.Element => {
     <ResponsiveContainer
       width="100%"
       height={width! < 640 ? "30%" : "70%"}
-      className="mt-5 mobile:h-2/5"
+      className="mt-7 mobile:h-2/5"
     >
       <Chart
         data={apiData}
@@ -34,7 +34,7 @@ export const BarChart = ({ apiData }: IBarChartProps): JSX.Element => {
           bottom: 5,
         }}
       >
-        <XAxis dataKey="name" axisLine={false} height={50}>
+        <XAxis dataKey="name" axisLine={false} height={40}>
           <Label
             value={labels.TIME}
             position="insideBottom"

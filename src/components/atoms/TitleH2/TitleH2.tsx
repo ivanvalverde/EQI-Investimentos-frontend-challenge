@@ -6,6 +6,6 @@ interface ITitleH2Props {
 
 export const TitleH2 = ({ text}: ITitleH2Props) => {
   return (
-    <h2 className='font-bold text-2xl p-2 mb-4 ml-5'>{text}</h2>
+    <h2 className='font-bold text-2xl p-2 ml-5'>{text}</h2>
   )
 }

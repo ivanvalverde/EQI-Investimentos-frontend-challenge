@@ -21,7 +21,7 @@ export const UserInput = ({
 }: IUserInputProps): JSX.Element => {
   return (
     <div className="flex flex-col my-5">
-      <label htmlFor={fieldName} className="text-xs my-2">
+      <label htmlFor={fieldName} className="laptop:text-xs mobile:text-base my-2">
         {label}
       </label>
 

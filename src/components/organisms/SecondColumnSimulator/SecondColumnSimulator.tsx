@@ -47,7 +47,7 @@ export const SecondColumnSimulator = ({
       {isVisible && (
         <div className="laptop:flex laptop:flex-col laptop:mt-0 mobile:block mobile:mt-10">
           <TitleH2 text={labels.SIMULATION_RESULT} />
-          <div className="flex tablet:flex-row mobile:flex-col mobile:items-center">
+          <div className="flex laptop:mt-4 tablet:flex-row mobile:flex-col mobile:items-center">
             <ResultDisplayer
               title={labels.GROSS_FINAL_VALUE}
               value={formattingApiData?.displayerValues?.grossFinalValue}

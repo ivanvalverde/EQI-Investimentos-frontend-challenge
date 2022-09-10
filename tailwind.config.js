@@ -5,8 +5,7 @@ module.exports = {
     screens: {
       mobile: '300px',
       tablet: '640px',
-      laptop: '1024px',
-      desktop: '1280px',
+      laptop: '1350px',
     },
     colors: {
       lightGreen: '#9dcc95',

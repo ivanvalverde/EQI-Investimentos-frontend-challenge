@@ -26,6 +26,7 @@ export enum labels {
   NET_FINAL_VALUE = "Valor Final Líquido",
   TOTAL_AMOUNT_INVESTED = "Valor Total Investido",
   NET_GAIN = "Ganho Líquido",
+  TOOLTIP_TEXT = "Opções de ",
 }
 
 export enum fieldNames {
