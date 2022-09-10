@@ -5,7 +5,6 @@ import { UserInputs } from "../../../shared/types";
 interface IUserInputProps {
   isCurrency?: boolean;
   isPercentage?: boolean;
-  defaultValue?: number;
   fieldName: string;
   label: string;
   text: string;
@@ -15,7 +14,6 @@ interface IUserInputProps {
 export const UserInput = ({
   isCurrency,
   isPercentage,
-  defaultValue,
   fieldName,
   label,
   text,
@@ -31,7 +29,6 @@ export const UserInput = ({
         maxLength={!isCurrency && !isPercentage ? 3 : undefined}
         prefix={isCurrency ? "R$ " : ""}
         suffix={isPercentage ? "%" : ""}
-        defaultValue={defaultValue}
         thousandSeparator="."
         decimalSeparator=","
         decimalScale={!isCurrency && !isPercentage ? 0 : 2}

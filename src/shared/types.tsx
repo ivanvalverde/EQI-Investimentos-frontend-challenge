@@ -5,7 +5,6 @@ export type ButtonObj = {
   isActive: boolean;
 };
 
-
 export type BtnActive = {
   [key: string]: boolean;
 };
@@ -19,7 +18,7 @@ export type UserInputs = {
   cdi: string;
 };
 
-export type ApiResponse = {
+export type ApiSimulationResponse = {
   tipoIndexacao: string;
   tipoRendimento: string;
   valorFinalBruto: number;
@@ -29,8 +28,8 @@ export type ApiResponse = {
   valorFinalLiquido: number;
   ganhoLiquido: number;
   graficoValores: {
-    comAporte: ContributionTimes
-    semAporte: ContributionTimes
+    comAporte: ContributionTimes;
+    semAporte: ContributionTimes;
   };
 };
 
@@ -46,4 +45,17 @@ type ContributionTimes = {
   "8": number;
   "9": number;
   "10": number;
+};
+
+export type ApiIndicatorsResponse = {
+  nome: string;
+  valor: number;
+};
+
+export type KeysContributionTimes = keyof ContributionTimes;
+
+export type ChartInfo = {
+  name: keyof ContributionTimes;
+  "Com aporte": number;
+  "Sem aporte": number;
 };

@@ -2,7 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import React, { useContext } from "react";
 import { btnsIndexingTypes, btnsTerm } from "../../../shared/constants";
 import { fieldNames, labels } from "../../../shared/enums";
-import { ApiResponse, BtnActive } from "../../../shared/types";
+import { ApiSimulationResponse, BtnActive } from "../../../shared/types";
 import ActionButton from "../../atoms/ActionButton";
 import TitleH2 from "../../atoms/TitleH2";
 import UserInput from "../../atoms/UserInput";
@@ -35,8 +35,8 @@ export const FirstColumnSimulator = () => {
 
   const onFetchData = async (
     listParams: string[]
-  ): Promise<AxiosResponse<ApiResponse[]>> => {
-    const apiData = await axios.get<ApiResponse[]>(
+  ): Promise<AxiosResponse<ApiSimulationResponse[]>> => {
+    const apiData = await axios.get<ApiSimulationResponse[]>(
       "http://localhost:3000/simulacoes",
       {
         params: {
@@ -59,9 +59,9 @@ export const FirstColumnSimulator = () => {
   };
 
   return (
-    <div>
+    <div className="mobile:w-full">
       <TitleH2 text={labels.SIMULATOR} />
-      <div className="flex">
+      <div className="flex mobile:flex-col laptop:flex-row">
         <div className="flex flex-col mx-8">
           <ButtonGroup buttons={btnsTerm} label={labels.SIMULATOR_INCOME} />
           <UserInput
@@ -113,7 +113,7 @@ export const FirstColumnSimulator = () => {
           />
         </div>
       </div>
-      <div className="flex justify-end mx-8">
+      <div className="flex laptop:justify-end laptop:mx-8 laptop:flex-row mobile:justify-center mobile:mx-0 mobile:flex-col mobile:items-center">
         <ActionButton
           label={labels.CLEAR_FIELDS_LABEL}
           callBack={onClearFields}

@@ -6,6 +6,6 @@ interface IBackgroundContainerProps {
 
 export const BackgroundContainer = ({ children }: IBackgroundContainerProps): JSX.Element => {
   return (
-    <div className="bg-lightGrey absolute top-0 bottom-0 left-0 right-0">{children}</div>
+    <div className="bg-lightGrey h-full">{children}</div>
   );
 };

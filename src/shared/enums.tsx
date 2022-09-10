@@ -20,6 +20,12 @@ export enum labels {
   TIME = "Tempo (meses)",
   SIMULATION_RESULT = "Resultado da Simulação",
   PROJECTION_OF_VALUES = "Projeção de Valores",
+  GROSS_FINAL_VALUE = "Valor final Bruto",
+  INCOME_TAX_RATE = "Alíquota do IR",
+  AMOUNT_PAID_IN_IR = "Valor Pago em IR",
+  NET_FINAL_VALUE = "Valor Final Líquido",
+  TOTAL_AMOUNT_INVESTED = "Valor Total Investido",
+  NET_GAIN = "Ganho Líquido",
 }
 
 export enum fieldNames {
