@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from "axios";
 import React, { useContext } from "react";
 import { btnsIndexingTypes, btnsTerm } from "../../../shared/constants";
 import { fieldNames, labels } from "../../../shared/enums";
+import { lowerCaseAndRemoveAccents } from "../../../shared/functions";
 import { ApiSimulationResponse, BtnActive } from "../../../shared/types";
 import ActionButton from "../../atoms/ActionButton";
 import TitleH2 from "../../atoms/TitleH2";
@@ -49,13 +50,6 @@ export const FirstColumnSimulator = () => {
       }
     );
     return apiData;
-  };
-
-  const lowerCaseAndRemoveAccents = (word: string): string => {
-    return word
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLocaleLowerCase();
   };
 
   return (

@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# Proposta
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Construir um front-end que servirá como um Simulador de Investimentos. A aplicação deverá seguir este [protótipo](https://github.com/eqi-investimentos/desafio-frontend) e consumir os dados da [API fake](https://github.com/eqi-investimentos/desafio-fake-api) com a intenção de exibir seus dados para a pesquisa(mockada) do usuário.
 
-## Available Scripts
+# Roteiro para iniciar o projeto
 
-In the project directory, you can run:
+O primeiro passo para iniciar o projeto é clonar a [API fake](https://github.com/eqi-investimentos/desafio-fake-api). Em seguida é necessário executar os seguintes comandos no terminal dentro do diretório da API fake:
 
-### `npm start`
+1- `npm install`: Utilize este comando para instalar as dependências da API fake;
+2- `npx json-server db.json`: Este comando irá levantar o servidor na porta 3000.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Em seguida devemos abrir o terminal neste diretório para executar os seguintes comandos:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+3- `npm install`: Utilize este comando para instalar as dependências do front-end;
+4- `npm start`: Este comando irá executar a aplicação, como já existe outra rodando na porta 3000, o sistema informará que a mesma já está em uso e solicitará permissão para utilizar a porta 3001. Pressione **Y** para confirmar.
 
-### `npm test`
+Após seguir esse procedimento, a aplicação já estará disponível para uso.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Informações a respeito do projeto
 
-### `npm run build`
+### Resolução funcional
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+O desafio foi projetado para funcionar dentro da faixa de resolução (a respeito da largura da tela): de 300px à 1600px.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Testes unitários
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+É possível executar os testes unitários contidos no desafio através dos seguintes comandos:
 
-### `npm run eject`
+1- `npm test`: Executa todos os testes presentes no projeto;
+2- `npm run test <path_do_arquivo>`: Executa um teste através de seu caminho;
+2- `npm run coverage`: Este comando mostrará a cobertura do projeto pelos testes escritos.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Bibliotecas utilizadas
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A biblioteca [TailwindCSS](https://tailwindcss.com/) foi utilizada para estilizar a página em questão. 
+Todas as chamadas a API fake foram feitas utilizando a biblioteca [Axios](https://axios-http.com/ptbr/docs/intro). 
+Para exibir os dados contidos na API em um gráfico, utilizaram-se componentes da biblioteca [ReCharts](https://recharts.org/en-US/). 
+Com a intenção de criar máscaras para os componentes de input do usuário condizentes com o protótipo, utilizou-se a biblioteca [react-number-format](https://www.npmjs.com/package/react-number-format). 
+O [Typescript](https://www.typescriptlang.org/) foi utilizado para maior escalabilidade do trabalho e para descobrir possíveis erros em tempo de desenvolvimento.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Considerações
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para testar a responsividade do desafio, toda vez após alterar a resolução no navegador, faz-se necessária a atualização da página. Um dos componentes utilizados para esboçar o gráfico tem certa incompatibilidade e não atualiza automaticamente ao mudar a responsividade.
+De acordo com o protótipo, os tipos de indexação podem ser: *pré*, *pós* e *fixado*. Porém, na API fake existem apenas os tipos de indexação: *pré*, *pós* e *ipca* (*fixado* não é uma opção). Ao selecionar o tipo de indexação ***fixado*** no front-end, os resultados que foram configurados para a API fake retornar são os do tipo ***ipca***.
+O protótipo também exibe um gráfico com dezessete ocorrências, sendo que essas representam os meses do ano. A API fake, retorna onze ocorrências para cada conjunto de *Rendimento* e *Tipo de indexação* (protótipo diferente do fornecido pela API).
+Foi utilizada a arquitetura [Atomic Design](https://medium.com/pretux/atomic-design-o-que-%C3%A9-como-surgiu-e-sua-import%C3%A2ncia-para-a-cria%C3%A7%C3%A3o-do-design-system-e3ac7b5aca2c) como modelo mental para auxiliar a pensar nas interfaces de usuário como um todo coeso e uma coleção de partes ao mesmo tempo.

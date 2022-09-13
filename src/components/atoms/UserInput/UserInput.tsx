@@ -33,6 +33,7 @@ export const UserInput = ({
         decimalSeparator=","
         decimalScale={!isCurrency && !isPercentage ? 0 : 2}
         name={fieldName}
+        id={fieldName}
         value={text}
         onValueChange={(e) => {
           setText((prev) => ({ ...prev, [fieldName]: e.formattedValue }));

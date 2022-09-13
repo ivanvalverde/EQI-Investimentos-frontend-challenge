@@ -6,7 +6,7 @@ import { ActionsContext } from "../../context/ActionsContext";
 import FirstColumnSimulator from "../FirstColumnSimulator";
 import SecondColumnSimulator from "../SecondColumnSimulator";
 
-export const SimulatorCalculator = () => {
+export const SimulatorCalculator = (): JSX.Element => {
   const { apiData } = useContext(ActionsContext);
   const isEmpty = Object.keys(apiData).length === 0;
   return (

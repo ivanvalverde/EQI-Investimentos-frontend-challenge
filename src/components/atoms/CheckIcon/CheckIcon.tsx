@@ -9,6 +9,7 @@ export const CheckIcon = () => {
       strokeWidth={3}
       stroke="currentColor"
       className="w-4 h-4"
+      data-testid="svgCheck"
     >
       <path
         strokeLinecap="round"

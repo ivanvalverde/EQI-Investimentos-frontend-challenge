@@ -9,6 +9,7 @@ export const InfoIcon = () => {
       strokeWidth={1.5}
       stroke="currentColor"
       className="w-5 h-5"
+      data-testid="svgInfo"
     >
       <path
         strokeLinecap="round"
