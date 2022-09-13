@@ -1,4 +1,9 @@
-import { ApiSimulationResponse, BtnActive, UserInputs } from "./types";
+import {
+  ApiSimulationResponse,
+  BtnActive,
+  ButtonObj,
+  UserInputs,
+} from "./types";
 
 export const mockCdi = "10%";
 export const mockIpca = "20%";
@@ -21,6 +26,22 @@ export const mockResultDisplayerValueIsCurrencyNegative = "R$ -20";
 export const mockResultDisplayerValueIsPercentage = "20%";
 export const mockBackgroundContainerText = "Texto";
 export const mockActionButtonLabel = "Botão";
+export const mockButtonGroup = "Botões";
+export const mockFirstBtnName = "First Button"
+export const mockSecondBtnName = "Second Button"
+
+export const btnsGroupMock: ButtonObj[] = [
+  {
+    name: mockFirstBtnName,
+    leftBorderRound: true,
+    isActive: true,
+  },
+  {
+    name: mockSecondBtnName,
+    rightBorderRound: true,
+    isActive: false,
+  },
+];
 
 export const mockBtnsPressed: BtnActive = {
   Bruto: true,
@@ -66,17 +87,44 @@ export const mockContextPropsFilledForm = (mock: () => void) => {
   };
 };
 
+export const mockContextPropsFilledFormBtnGroup = (mock: () => void) => {
+  return {
+    apiData: {} as ApiSimulationResponse,
+    btnsPressed: mockBtnsPressed,
+    text: {
+      cdi: mockCdi,
+      initialContribution: "R$ 200",
+      ipca: mockIpca,
+      montlyContribution: "R$ 100",
+      profitability: "R$ 300",
+      term: "23",
+    } as UserInputs,
+    setText: () => {},
+    setBtnsPressed: mock,
+    setApiData: () => {},
+  };
+};
+
+export const mockIndexingType = "pre";
+export const mockIncomeType = "bruto";
+export const mockGrossFinalValue = 2048.09;
+export const mockTaxRate = 0;
+export const mockAmmountPaidInIr = 0;
+export const mockTotalInvestedAmmount = 1000;
+export const mockNetFinalValue = 2048.09;
+export const mockNetGain = 1048.08;
+
 export const mockSimulationsResponse: { data: ApiSimulationResponse[] } = {
   data: [
     {
-      tipoIndexacao: "pre",
-      tipoRendimento: "bruto",
-      valorFinalBruto: 2048.09,
-      aliquotaIR: 0,
-      valorPagoIR: 0,
-      valorTotalInvestido: 1000,
-      valorFinalLiquido: 2048.09,
-      ganhoLiquido: 1048.08,
+      tipoIndexacao: mockIndexingType,
+      tipoRendimento: mockIncomeType,
+      valorFinalBruto: mockGrossFinalValue,
+      aliquotaIR: mockTaxRate,
+      valorPagoIR: mockAmmountPaidInIr,
+      valorTotalInvestido: mockTotalInvestedAmmount,
+      valorFinalLiquido: mockNetFinalValue,
+      ganhoLiquido: mockNetGain,
       graficoValores: {
         comAporte: {
           "0": 1000,
@@ -108,3 +156,6 @@ export const mockSimulationsResponse: { data: ApiSimulationResponse[] } = {
     },
   ],
 };
+
+export const mockInputLowercaseAndAccentsFunc = "TÍTULO";
+export const mockOutputLowercaseAndAccentsFunc = "titulo";

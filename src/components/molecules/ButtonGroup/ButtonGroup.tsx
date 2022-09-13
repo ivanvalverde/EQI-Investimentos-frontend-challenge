@@ -50,6 +50,7 @@ export const ButtonGroup = ({
         {buttons.map((btn, index) => {
           return (
             <button
+              data-testid={`button${index}`}
               key={`${btn.name + index}`}
               name={`${btn.name}`}
               className={`border grow ${
